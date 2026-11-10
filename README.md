@@ -27,6 +27,14 @@ npm start
 
 Open http://127.0.0.1:5190/ for the day tour or http://127.0.0.1:5190/night/ for the night game. Run all commands from the repository root; the root build packages both modes together. Rebuild after changing source files. The completed build works without internet access. Fonts, geometry, materials and sound generation are local.
 
+During `npm run build`, Vite may print messages such as
+`/fonts/DM-Sans-Regular.ttf ... didn't resolve at build time, it will remain
+unchanged to be resolved at runtime`, and a note that `Some chunks are larger
+than 500 kB`. These are expected advisories, not failures: the build still
+finishes with a `Ready: <n> deployment files` line, the font files are written
+to `dist/fonts/`, and the browser requests them at runtime. Confirm by running
+`npm start` and loading both pages.
+
 On Windows, after the first build you can also double-click **Start-GBU-Campus.cmd**. It uses the existing Codex Node runtime when available, otherwise Node from PATH, and opens the game.
 
 **5190 is the default local port.** Both `npm start` and the Windows launcher respect the `PORT` environment variable. To choose another port, set it before starting. For example, in PowerShell:
